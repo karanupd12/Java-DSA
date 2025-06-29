@@ -1,0 +1,54 @@
+Access Control:
+
+How a member can be accessed is determined by the access modifier attached to its declaration.
+Usually, you will want to restrict access to the data members of a class—allowing access only through methods.
+Also, there will be times when you will want to define methods that are private to a class.
+
+Java’s access modifiers are public, private, and protected. Java also defines a default access level.
+protected applies only when inheritance is involved.
+
+When no access modifier is used, then by default the member of a class is public within its own package,
+but cannot be accessed outside of its package.
+
+            │ Class │ Package │ Subclass │ Subclass │ World
+            │       │         │(same pkg)│(diff pkg)│(diff pkg & not subclass)
+────────────┼───────┼─────────┼──────────┼──────────┼──────────────────────────
+public      │   +   │    +    │    +     │     +    │   +
+────────────┼───────┼─────────┼──────────┼──────────┼──────────────────────────
+protected   │   +   │    +    │    +     │     +    │
+────────────┼───────┼─────────┼──────────┼──────────┼──────────────────────────
+no modifier │   +   │    +    │    +     │          │
+────────────┼───────┼─────────┼──────────┼──────────┼──────────────────────────
+private     │   +   │         │          │          │
+
+
+There are four types of access modifiers available in Java:
+
+1. Default – No keyword required
+2. Private
+3. Protected
+4. Public
+
+1. Default Access Modifier :-
+When no access modifier is specified for a class, method, or data member – It is said to be having the default access
+modifier by default. The data members, classes, or methods that are not declared using any access modifiers
+i.e. having default access modifiers are accessible only within the same package.
+
+2. Private Access Modifier :-
+The private access modifier is specified using the keyword private. The methods or data members declared as private are
+accessible only within the class in which they are declared.
+>>> Any other class of the same package will not be able to access these members.
+>>> Top-level classes or interfaces can not be declared as private because
+>>> private means “only visible within the enclosing class”.
+>>> protected means “only visible within the enclosing class and any subclasses”
+Hence these modifiers in terms of application to classes, apply only to nested classes and not on top-level classes.
+
+3. Protected Access Modifier :-
+The protected access modifier is specified using the keyword protected.
+The methods or data members declared as protected are accessible within the same package or subclasses in different packages.
+
+4. Public Access modifier :-
+The public access modifier is specified using the keyword public.
+The public access modifier has the widest scope among all other access modifiers.
+Classes, methods, or data members that are declared as public are accessible from everywhere in the program.
+There is no restriction on the scope of public data members.

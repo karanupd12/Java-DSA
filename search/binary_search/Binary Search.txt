@@ -1,0 +1,20 @@
+
+
+The Binary search method is only suitable for searching in a sorted array. In this method, the element that has to be searched
+is compared to the array's middle element. Search is considered successful only if it matches the target. The binary search
+algorithm uses the divide-and-conquer approach, it does not scan every element in the list, it only searches half of the list
+instead of going through each element, Hence said to be the best searching algorithm because it is faster to execute as compared
+to Linear search.
+
+algorithm :
+1) find the middle element i.e; mid=(starting index(s) + (e)ending index)/2
+2) target > mid --- search in the right side or else in left(by following the steps 1 again)
+3) if mid==target element (that would be our answer)
+4) if s>e : target not found
+
+example:
+arr=[10,20,30,40,50,60,70] , search for 60.
+1) mid =(s+e)/2=(0+6)/2=3rd (middle element is at 3rd index i.e; 40)
+2) now 40(mid)<60(target), so check at right
+3) arrright=[50,60,70], again mid=((4+7)/2)=5th index i.e;60
+4) now target=mid=60, therefore 60 found at 5th index.

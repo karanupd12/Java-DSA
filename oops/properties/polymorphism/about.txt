@@ -1,0 +1,42 @@
+Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.
+
+Like we specified in the previous chapter; Inheritance lets us inherit attributes and methods from another class. Polymorphism
+uses those methods to perform different tasks. This allows us to perform/represent a same action in different ways.
+
+For example, think of a superclass called Shapes that has a method called area(). Subclasses of Shapes could be
+Square,Triangle, Circle - And they have their own implementation of area(square = side * side, circle = pir*r*r,
+triangle = 1/2 * b * h etc.):
+
+
+Types of polymorphism :-
+1. Compile time polymorphism = achieved via method overloading(same name but return type , argument , ordering is different)
+2. Runtime polymorphism = achieved via method overriding
+
+
+1. Compile Time Polymorphism:
+  Whenever an object is bound with its functionality at the compile time, this is known as the compile-time polymorphism.
+
+  At compile-time, java knows which method to call by checking the method signatures. So this is called compile-time polymorphism
+  or static or early binding. Compile-time polymorphism is achieved through method overloading. Method Overloading says you
+  can have more than one function with the same name in one class having a different prototype.
+
+  Function overloading is one of the ways to achieve polymorphism but it depends on technology and which type of polymorphism
+  we adopt. In java, we achieve function overloading at compile-Time.
+
+
+2.Runtime polymorphism :
+  in Java is also popularly known as Dynamic Binding or Dynamic Method Dispatch.
+
+  In this process, the call to an overridden method is resolved dynamically at runtime rather than at compile-time.
+  You can achieve Runtime polymorphism via Method Overriding.
+
+  Method Overriding is done when a child class has a method with the same name, parameters, and return type as the
+  parent/superclass
+  i.e;then that function overrides the function in the superclass. In simpler terms, if the child class provides its definition
+  to a method already present in the parent class; then that function in the base class is said to be overridden.
+
+  Also, it should be noted that runtime polymorphism can only be achieved through functions and not data members.
+
+  Overriding is done by using a reference variable of the superclass. The method to be called is determined based on the object
+  which is being referred to by the reference variable. This is also known as Upcasting.
+
