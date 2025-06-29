@@ -91,5 +91,3 @@ Please keep the structure clean and meaningful.
 * [GitHub](https://github.com/karanupd12)
 * [LinkedIn](https://linkedin.com/in/karanupd12)
 * [Email](mailto:karanupd12@gmail.com)
-
-```
