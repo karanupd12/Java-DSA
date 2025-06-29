@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGJ3a3IwenU1ZngxM3p4M2tmdDdieDBmZmxleHQxaHNnODJkdWFpYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CqtG4f5UF9G5q/giphy.gif" alt="DSA with Java Banner" width="100%">
+</p>
+
+
 # DSA with Java
 
 I uploaded all my DSA with Java code to help others understand and use. Feel free to explore, learn, and contribute.
