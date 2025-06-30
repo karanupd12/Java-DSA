@@ -3,18 +3,6 @@ package trees.hard_problems;
 
 import java.util.ArrayList;
 
-class TreeNode{
-    int data;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int data){
-        this.data = data;
-        left = null;
-        right = null;
-    }
-}
-
 public class AllPaths {
     public static ArrayList<ArrayList<Integer>> Paths(TreeNode root) {
         ArrayList<ArrayList<Integer>> res = new ArrayList<>();
@@ -25,7 +13,7 @@ public class AllPaths {
 
     private static void preDfs(TreeNode root, ArrayList<Integer> path, ArrayList<ArrayList<Integer>> res) {
         if (root == null) return;
-        path.add(root.data);
+        path.add(root.val);
         if (root.left == null && root.right == null) {
             res.add(new ArrayList<>(path));
         }
