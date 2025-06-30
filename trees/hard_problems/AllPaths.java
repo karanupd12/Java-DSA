@@ -4,6 +4,7 @@ package trees.hard_problems;
 import java.util.ArrayList;
 
 public class AllPaths {
+
     public static ArrayList<ArrayList<Integer>> Paths(TreeNode root) {
         ArrayList<ArrayList<Integer>> res = new ArrayList<>();
         if (root == null) return res;

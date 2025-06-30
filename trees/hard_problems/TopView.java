@@ -3,17 +3,19 @@ package trees.hard_problems;
 import java.util.*;
 import trees.hard_problems.TreeNode;
 
-class Pair{
-    TreeNode node;
-    int hd;
-    Pair(TreeNode node, int hd){
-        this.node = node;
-        this.hd = hd;
-    }
-}
 
 public class TopView{
-    static ArrayList<Integer> topView(TreeNode root) {
+
+    private static class Pair{
+        TreeNode node;
+        int hd;
+        Pair(TreeNode node, int hd){
+            this.node = node;
+            this.hd = hd;
+        }
+    }
+
+    public ArrayList<Integer> topView(TreeNode root) {
         Map<Integer, Integer> map = new TreeMap<>();
         Queue<Pair> q = new LinkedList<>();
         q.offer(new Pair(root, 0));
@@ -28,6 +30,5 @@ public class TopView{
         }
         
         return new ArrayList<>(map.values());
-        
     }
 }
