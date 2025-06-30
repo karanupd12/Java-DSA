@@ -1,7 +1,7 @@
-package trees;
+package trees.hard_problems;
 
 import java.util.*;
-public class Node{
+class Node{
     int data;
     Node left;
     Node right;
@@ -22,7 +22,7 @@ class Pair{
     }
 }
 
-class TopView{
+public class TopView{
     static ArrayList<Integer> topView(Node root) {
         Map<Integer, Integer> map = new TreeMap<>();
         Queue<Pair> q = new LinkedList<>();
