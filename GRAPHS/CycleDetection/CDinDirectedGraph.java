@@ -22,12 +22,10 @@ public class CDinDirectedGraph {
 
     // Function to detect cycle in a directed graph
     public static boolean isCycle(int V, List<List<Integer>> adj) {
-        boolean[] vis = new boolean[V]; // Tracks visited nodes
-        boolean[] rec = new boolean[V]; // Tracks nodes currently in the recursion stack
+        boolean[] vis = new boolean[V];              // Tracks visited nodes
+        boolean[] rec = new boolean[V];              // Tracks nodes currently in the recursion stack
         for (int i = 0; i < V; i++) {
-            if (!vis[i] && hasCycle(i, adj, vis, rec)) {
-                return true; // Cycle detected
-            }
+            if (!vis[i] && hasCycle(i, adj, vis, rec)) return true; // Cycle detected
         }
         return false; // No cycle found
     }
@@ -35,13 +33,12 @@ public class CDinDirectedGraph {
     private static boolean hasCycle(int node, List<List<Integer>> adj, boolean[] vis, boolean[] rec) {
         vis[node] = true; // Mark the node as visited
         rec[node] = true; // Add the node to the recursion stack
-        for (int neighbor : adj.get(node)) {
-            if (!vis[neighbor]) {
-                if (hasCycle(neighbor, adj, vis, rec)) return true;
-            } else if (rec[neighbor]) {
-                return true; // Cycle detected
-            }
+
+        for (int nei : adj.get(node)) {
+            if (!vis[nei] && hasCycle(nei, adj, vis, rec)) return true;
+            else if (rec[nei]) return true; // Cycle detected
         }
+
         rec[node] = false; // Remove the node from the recursion stack
         return false; // No cycle detected for this path
     }
