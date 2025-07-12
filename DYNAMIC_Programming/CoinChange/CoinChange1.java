@@ -1,4 +1,4 @@
-package DYNAMIC_Programming;
+package DYNAMIC_Programming.CoinChange;
 
 //Memoization method - uses memo[] to store ans of already calculated - good for small amount
 

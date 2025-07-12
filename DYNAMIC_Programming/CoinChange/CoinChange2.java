@@ -1,4 +1,4 @@
-package DYNAMIC_Programming;
+package DYNAMIC_Programming.CoinChange;
 
 //Tabulation method(bottom up) - non recursive - good for large amount
 
