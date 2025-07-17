@@ -2,65 +2,91 @@ package DYNAMIC_Programming;
 
 import java.util.Arrays;
 
-public class KnapSack01 {
+/*
 
-    //Memoization - top down
-    private static int knapsack1(int w, int[] weights, int[] values, int n, int[][] dp) {
-        if(n == 0 || w == 0) return 0;      //base case
-        if(dp[n][w] != -1) return dp[n][w]; //return stored result
+Problem Statement: https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1
+The 0/1 Knapsack Problem is a classic optimization problem where you have a set of items, each with a weight and a value, and you want to determine the maximum value
+you can carry in a knapsack of a given capacity. Each item can either be included in the knapsack or excluded (hence "0/1").
 
-        if(weights[n-1] > w)
-            return dp[n][w] = knapsack1(w, weights, values, n-1, dp);
+Approach :- Recursion -> Memoization -> Tabulation -> Space Optimization
+Maximize the value of items in the knapsack without exceeding its capacity by taking capacity as target.
+*/
 
-        int include = values[n-1] + knapsack1(w - weights[n-1], weights,  values, n-1, dp);
-        int exclude = knapsack1(w, weights, values, n-1, dp);
-
-        return dp[n][w] = Math.max(include, exclude);
-    }
-
-    //Tabulation - bottom up
-    private static int knapsack2(int W, int[] weights, int[] values, int n) {
-        int[][] dp = new int[n + 1][W + 1];
-
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= W; j++) {
-                if (weights[i - 1] <= j) {   //we can fit
-                    int include = values[i-1] + dp[i-1][j-weights[i-1]];
-                    int exclude = dp[i-1][j];
-                    dp[i][j] = Math.max(include, exclude);
-                }
-                else {     //can't fit, so copy above one
-                    dp[i][j] = dp[i - 1][j];
-                }
-            }
+class Solution {
+    //BEST SPACE OPTIMIZED APPROACH
+    static int knapsack(int W, int val[], int wt[]) {
+        int n = val.length;
+        int[] prev = new int[W+1];
+        //Base case
+        for(int w = 0; w <= W; w++) {
+            if (wt[0] <= w) prev[w] = val[0];
+            else prev[w] = 0;
         }
-        return dp[n][W];
+        //build dp array
+        for(int i = 1; i < n; i++){
+            int[] curr = new int[W+1];
+            for(int w = 0; w <= W; w++){
+                int notPick = 0 + prev[w];
+                int pick = (wt[i] <= w) ? val[i] + prev[w - wt[i]] : 0;
+                curr[w] = Math.max(pick, notPick);
+            }
+            prev = curr;
+        }
+        return prev[W];
     }
-
-
-    public static void main(String[] args) {
-        int[] weights = {1, 3, 4, 5};
-        int[] values = {10, 40, 50, 70};
-        int W = 8;
-        int n = weights.length;
-        int[][] dp = new int[n+1][W+1];
-        for (int[] row : dp) Arrays.fill(row, -1);
-        System.out.println(knapsack1(W, weights, values, n, dp));
-        System.out.println(knapsack2(W, weights, values, n));
-    }
-
 }
 
+/* TABULATION
+    static int knapsack(int W, int val[], int wt[]) {
+        int n = val.length;
 
-/* BRUTE FORCE :
-private static int knapsack(int w, int[] weights, int[] values, int n) {
-        if(w == 0 || n == 0) return 0;
+        int[][] dp = new int[n][W+1];
 
-        if(weights[n-1] > w)
-            return knapsack(w, weights, values, n-1);
+        for(int w = 0; w <= W; w++){
+            if(wt[0] <= w) dp[0][w] = val[0];
+            else dp[0][w] = 0;
+        }
 
-        int include = values[n-1] + knapsack(w - weights[n-1], weights,  values, n-1);
-        int exclude = knapsack(w, weights, values, n-1);
 
-        return Math.max(include, exclude);
-    }*/
+        for(int i = 1; i < n; i++){
+            for(int w = 0; w <= W; w++){
+                int notPick = 0 + dp[i-1][w];
+                int pick = (wt[i] <= w) ? val[i] + dp[i-1][w - wt[i]] : 0;
+                dp[i][w] = Math.max(pick, notPick);
+            }
+        }
+
+        return dp[n-1][W];
+    }
+
+*/
+
+/*  MEMOIZATTION
+    static int knapsack(int W, int val[], int wt[]) {
+        int n = val.length;
+
+        int[][] memo = new int[n][W+1];
+        for(int[] arr : memo) Arrays.fill(arr, -1);
+        return dfs(n-1, W, val, wt, memo);
+    }
+
+    static int dfs(int i, int capacity, int[] val, int[] wt, int[][] memo){
+        if(i == 0){
+            if(wt[i] <= capacity) return val[i];
+            else return 0;
+        }
+
+        if(memo[i][capacity] != -1) return memo[i][capacity];
+
+        int notPick = 0 + dfs(i-1, capacity, val, wt, memo);
+        int pick = 0;
+        if(wt[i] <= capacity){
+            pick = val[i] + dfs(i-1, capacity - wt[i], val, wt, memo);
+        }
+
+        return memo[i][capacity] = Math.max(pick, notPick);
+    }
+
+*/
+
+

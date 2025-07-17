@@ -1,4 +1,4 @@
-package DYNAMIC_Programming;
+package DYNAMIC_Programming.OneDimDP;
 
 /*
 Problem Statement: https://leetcode.com/problems/fibonacci-number/
