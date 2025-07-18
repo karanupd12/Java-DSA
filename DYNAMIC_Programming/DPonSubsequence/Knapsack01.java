@@ -1,7 +1,6 @@
 package DYNAMIC_Programming.DPonSubsequence;
 
 /*
-
 Problem Statement: https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1
 The 0/1 Knapsack Problem is a classic optimization problem where you have a set of items, each with a weight and a value, and you want to determine the maximum value
 you can carry in a knapsack of a given capacity. Each item can either be included in the knapsack or excluded (hence "0/1").
@@ -10,7 +9,7 @@ Approach :- Recursion -> Memoization -> Tabulation -> Space Optimization
 Maximize the value of items in the knapsack without exceeding its capacity by taking capacity as target.
 */
 
-class Solution {
+class Knapsack01 {
     //BEST SPACE OPTIMIZED APPROACH
     static int knapsack(int W, int val[], int wt[]) {
         int n = val.length;
