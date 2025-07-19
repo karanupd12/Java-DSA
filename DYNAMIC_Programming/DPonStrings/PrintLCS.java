@@ -34,4 +34,11 @@ public class PrintLCS {
 
         return lcs.reverse().toString(); // Reverse to get the correct order
     }
+
+    public static void main(String[] args) {
+        String s1 = "AGGTAB";
+        String s2 = "GXTXAYB";
+        String lcs = printLCS(s1, s2);
+        System.out.println("Longest Common Subsequence: " + lcs);
+    }
 }
