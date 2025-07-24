@@ -2,6 +2,7 @@ package DYNAMIC_Programming.DPonLIS;
 import java.util.*;
 
 /*
+Problem : https://leetcode.com/problems/number-of-longest-increasing-subsequence/
 Intution :
 - For each index i, we track the length (dp[i]) and count (cnt[i]) of the longest increasing subsequences ending at i.
 - If a previous element p is smaller and gives a longer LIS, we update the length and reset count.
