@@ -49,7 +49,7 @@ public class KMP {
                 j++;
             }else{
                 if(j != 0) j = lps[j-1];
-                else lps[i++] = 0;
+                else i++;
             }
         }
         return lps;
