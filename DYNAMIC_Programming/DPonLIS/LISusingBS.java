@@ -14,11 +14,11 @@ SC : O(N)
 */
 
 public class LISusingBS {
-    public int lengthOfLIS(int[] nums) {
+    public static int lengthOfLIS(int[] nums) {
         List<Integer> lis = new ArrayList<>();
 
         for (int num : nums) {
-            int index = findPosition(lis, num);
+            int index = lowerBound(lis, num);
 
             if (index == lis.size()) {
                 lis.add(num); // Extend the sequence
@@ -31,19 +31,23 @@ public class LISusingBS {
     }
 
     // Binary search: find lowerBound :  find first index >= target
-    private int findPosition(List<Integer> lis, int target) {
-        int low = 0, high = lis.size() - 1;
-
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            if (lis.get(mid) < target) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
+    private static int lowerBound(List<Integer> list, int target){
+        int s = 0, e = list.size()-1, res = list.size();
+        while(s <= e){
+            int mid = s+(e-s)/2;
+            if(list.get(mid) >= target){
+                res = mid;
+                e = mid-1;
+            }else{
+                s = mid+1;
             }
         }
+        return res;
+    }
 
-        return low;
+    public static void main(String[] args) {
+        int[] arr = new int[]{10, 6, 3, 11, 7, 15};
+        System.out.println(lengthOfLIS(arr));   // 3; i.e; [10, 11, 15]
     }
 
 }
